@@ -1,106 +1,93 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import github from './../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import styled, { css } from 'styled-components'
 
-interface State {
-  active: boolean
-  navBarActiveClass: string
-}
+export default function() {
+  const isIndexPage = location.pathname === '/'
 
-class Navbar extends React.Component<{}, State> {
-  constructor(props) {
-    super(props)
-    this.state = {
-      active: false,
-      navBarActiveClass: ''
+  const [visible, setVisible] = React.useState(false)
+  const visibleFunc = () => {
+    if (window.scrollY > 500 && !visible) {
+      setVisible(true)
+    }
+    if (window.scrollY <= 500 && visible) {
+      setVisible(false)
     }
   }
 
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active'
-            })
-          : this.setState({
-              navBarActiveClass: ''
-            })
-      }
-    )
+  if (isIndexPage) {
+    React.useEffect(() => {
+      window.addEventListener('scroll', visibleFunc)
+      return () =>
+        window.removeEventListener('scroll', visibleFunc)
+    }, [visible, setVisible])
   }
 
-  render() {
-    return (
-      <nav
-        className='navbar is-transparent'
-        role='navigation'
-        aria-label='main-navigation'
-      >
-        <div className='container'>
-          <div className='navbar-brand'>
-            <Link
-              to='/'
-              className='navbar-item'
-              title='Logo'
-            >
-              <img
-                src={logo}
-                alt='Kaldi'
-                style={{ width: '88px' }}
-              />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${
-                this.state.navBarActiveClass
-              }`}
-              data-target='navMenu'
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id='navMenu'
-            className={`navbar-menu ${
-              this.state.navBarActiveClass
-            }`}
-          >
-            <div className='navbar-start has-text-centered'>
-              <Link className='navbar-item' to='/blog'>
-                Blog
-              </Link>
-              <Link className='navbar-item' to='/contact'>
-                Contact
-              </Link>
-            </div>
-            <div className='navbar-end has-text-centered'>
-              <a
-                className='navbar-item'
-                href='https://github.com/AustinGreen/gatsby-netlify-cms-boilerplate'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <span className='icon'>
-                  <img src={github} alt='Github' />
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    )
-  }
+  return (
+    <>
+      <Header visible={isIndexPage ? visible : true}>
+        <Logo>souzen</Logo>
+        <Nav>
+          <StyledLink to={''}>works</StyledLink>
+          <StyledLink to={''}>blog</StyledLink>
+          <StyledLink to={''}>contact</StyledLink>
+        </Nav>
+      </Header>
+      {!isIndexPage && <Padding />}
+    </>
+  )
 }
 
-export default Navbar
+const Header = styled.header<{ visible: boolean }>`
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+  background: rgba(255, 255, 255, 0.95);
+  left: 0;
+  top: 0;
+  z-index: 100;
+  height: 48px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.15s ease;
+
+  ${({ visible }) =>
+    visible &&
+    css`
+      opacity: 1;
+      visibility: visible;
+    `}
+`
+
+const Logo = styled.div`
+  font-size: 12px;
+  font-weight: bold;
+`
+
+const Nav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* flex-flow: column; */
+`
+
+const StyledLink = styled(Link)`
+  padding: 8px;
+  font-size: 12px;
+  text-decoration: none;
+  color: #000;
+
+  &:hover {
+    color: #fff;
+    background: #000;
+  }
+`
+
+const Padding = styled.div`
+  height: 48px;
+`

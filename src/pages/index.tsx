@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { sleep, sleepUntilAllImageLoaded } from './../util'
 import LoadingOverlay from './../components/IndexPage/LoadingOverlay'
-import 'reset-css'
+import Layout from '../components/Layout'
 
 import IntersectionWrapper from './../components/IntersectionWrapper'
 import Mainvisual from './../components/IndexPage/Mainvisual'
@@ -29,49 +29,42 @@ export default class extends React.Component<{}, State> {
   render() {
     const { isLoading } = this.state
     return (
-      <Wrapper isLoading={isLoading}>
-        <LoadingOverlay isLoading={isLoading} />
-        <MainvisualWrapper disabled={isLoading}>
-          {isAppeared => (
-            <>
-              <Mainvisual isAppeared={isAppeared} />
-              <MainvisualShadow />
-            </>
-          )}
-        </MainvisualWrapper>
-        <AboutWrapper height={450} disabled={isLoading}>
-          {isAppeared => (
-            <>
-              <About isAppeared={isAppeared} />
-              <AboutShadow />
-            </>
-          )}
-        </AboutWrapper>
-        <WorksWrapper height={450} disabled={isLoading}>
-          {isAppeared => (
-            <>
-              <Works isAppeared={isAppeared} />
-              <WorksShadow />
-            </>
-          )}
-        </WorksWrapper>
-        <ContactWrapper disabled={isLoading}>
-          {isAppeared => (
-            <>
-              <Contact isAppeared={isAppeared} />
-            </>
-          )}
-        </ContactWrapper>
-        <Footer>
-          copyright{' '}
-          <a
-            href='https://twitter.com/matsurai25'
-            target='_blank'
-          >
-            matsurai
-          </a>
-        </Footer>
-      </Wrapper>
+      <Layout>
+        <Wrapper isLoading={isLoading}>
+          <LoadingOverlay isLoading={isLoading} />
+          <MainvisualWrapper disabled={isLoading}>
+            {isAppeared => (
+              <>
+                <Mainvisual isAppeared={isAppeared} />
+                <MainvisualShadow />
+              </>
+            )}
+          </MainvisualWrapper>
+          <AboutWrapper height={450} disabled={isLoading}>
+            {isAppeared => (
+              <>
+                <About isAppeared={isAppeared} />
+                <AboutShadow />
+              </>
+            )}
+          </AboutWrapper>
+          <WorksWrapper height={450} disabled={isLoading}>
+            {isAppeared => (
+              <>
+                <Works isAppeared={isAppeared} />
+                <WorksShadow />
+              </>
+            )}
+          </WorksWrapper>
+          <ContactWrapper disabled={isLoading}>
+            {isAppeared => (
+              <>
+                <Contact isAppeared={isAppeared} />
+              </>
+            )}
+          </ContactWrapper>
+        </Wrapper>
+      </Layout>
     )
   }
 }
@@ -93,8 +86,11 @@ const Wrapper = styled.div<{ isLoading: boolean }>`
   ${({ isLoading }) =>
     isLoading &&
     css`
+      background: #fff;
+      position: fixed;
       overflow: hidden;
       height: 100vh;
+      z-index: 1;
     `}
 `
 
@@ -140,9 +136,3 @@ const WorksShadow = styled(Shadow)`
 `
 
 const ContactWrapper = styled(Item)``
-
-const Footer = styled.div`
-  font-size: 10px;
-  padding: 20px;
-  text-align: right;
-`

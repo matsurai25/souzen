@@ -3,6 +3,9 @@ import Helmet from 'react-helmet'
 import Footer from './Footer'
 import Navbar from '../components/Navbar'
 import useSiteMetadata from './SiteMetadata'
+import 'reset-css'
+
+import 'intersection-observer'
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
