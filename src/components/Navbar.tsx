@@ -2,9 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
 
-export default function() {
-  const isIndexPage = location.pathname === '/'
-
+export default function({ isHeaderHidden }) {
   const [visible, setVisible] = React.useState(false)
   const visibleFunc = () => {
     if (window.scrollY > 500 && !visible) {
@@ -15,7 +13,7 @@ export default function() {
     }
   }
 
-  if (isIndexPage) {
+  if (isHeaderHidden) {
     React.useEffect(() => {
       window.addEventListener('scroll', visibleFunc)
       return () =>
@@ -25,7 +23,7 @@ export default function() {
 
   return (
     <>
-      <Header visible={isIndexPage ? visible : true}>
+      <Header visible={isHeaderHidden ? visible : true}>
         <Logo>souzen</Logo>
         <Nav>
           <StyledLink to={''}>works</StyledLink>
@@ -33,7 +31,7 @@ export default function() {
           <StyledLink to={''}>contact</StyledLink>
         </Nav>
       </Header>
-      {!isIndexPage && <Padding />}
+      {!isHeaderHidden && <Padding />}
     </>
   )
 }

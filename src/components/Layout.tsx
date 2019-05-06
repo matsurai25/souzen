@@ -5,9 +5,7 @@ import Navbar from '../components/Navbar'
 import useSiteMetadata from './SiteMetadata'
 import 'reset-css'
 
-import 'intersection-observer'
-
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ isHeaderHidden, children }) => {
   const { title, description } = useSiteMetadata()
   return (
     <div>
@@ -52,7 +50,7 @@ const TemplateWrapper = ({ children }) => {
           content='/img/og-image.jpg'
         />
       </Helmet>
-      <Navbar />
+      <Navbar isHeaderHidden={isHeaderHidden} />
       <div>{children}</div>
       <Footer />
     </div>

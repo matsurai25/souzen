@@ -10,11 +10,15 @@ import Works from './../components/IndexPage/Works'
 import Contact from './../components/IndexPage/Contact'
 import styled, { css } from 'styled-components'
 
+interface Props {
+  location: Location
+}
+
 interface State {
   isLoading: boolean
 }
 
-export default class extends React.Component<{}, State> {
+export default class extends React.Component<Props, State> {
   constructor(props: any) {
     super(props)
     this.state = { isLoading: true }
@@ -27,9 +31,11 @@ export default class extends React.Component<{}, State> {
   }
 
   render() {
+    const isHeaderHidden =
+      this.props.location.pathname === '/'
     const { isLoading } = this.state
     return (
-      <Layout>
+      <Layout isHeaderHidden={isHeaderHidden}>
         <Wrapper isLoading={isLoading}>
           <LoadingOverlay isLoading={isLoading} />
           <MainvisualWrapper disabled={isLoading}>
