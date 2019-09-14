@@ -52,7 +52,7 @@ const TemplateWrapper = ({
         />
         <meta
           property='og:image'
-          content='/img/og-image.jpg'
+          content='https://souzen.me/img/og-image.jpg'
         />
       </Helmet>
       <Navbar isHeaderHidden={isHeaderHidden} />
