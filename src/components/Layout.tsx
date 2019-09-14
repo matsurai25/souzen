@@ -5,12 +5,20 @@ import Navbar from '../components/Navbar'
 import useSiteMetadata from './SiteMetadata'
 import 'reset-css'
 
-const TemplateWrapper = ({ isHeaderHidden, children }) => {
+interface Props {
+  isHeaderHidden?: boolean
+  children: React.ReactNode
+}
+
+const TemplateWrapper = ({
+  isHeaderHidden,
+  children
+}: Props) => {
   const { title, description } = useSiteMetadata()
   return (
     <div>
       <Helmet>
-        <html lang='en' />
+        <html lang='ja' />
         <title>{title}</title>
         <meta name='description' content={description} />
 
@@ -31,20 +39,9 @@ const TemplateWrapper = ({ isHeaderHidden, children }) => {
           href='/img/favicon-16x16.png'
           sizes='16x16'
         />
-
-        <link
-          rel='mask-icon'
-          href='/img/safari-pinned-tab.svg'
-          color='#ff4400'
-        />
-        <meta name='theme-color' content='#fff' />
-
-        <meta
-          property='og:type'
-          content='business.business'
-        />
+        <meta name='theme-color' content='#0000FF' />
         <meta property='og:title' content={title} />
-        <meta property='og:url' content='/' />
+        <meta property='og:url' content='https://souzen.me' />
         <meta
           property='og:image'
           content='/img/og-image.jpg'

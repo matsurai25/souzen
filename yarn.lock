@@ -11968,11 +11968,6 @@ relay-runtime@2.0.0:
     "@babel/runtime" "^7.0.0"
     fbjs "^1.0.0"
 
-rellax@^1.9.1:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/rellax/-/rellax-1.9.1.tgz#aca23c1acf3867e66348234f86da435d7ccc3c49"
-  integrity sha512-z1wQwbmVYy3NoVbNxdnYyXyUG/2wBpyKPSsoFhb44Tv5mooSueqURcksHxO9zarm2adFob6qT5xMtpb30F0iVA==
-
 remark-parse@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/remark-parse/-/remark-parse-3.0.1.tgz#1b9f841a44d8f4fbf2246850265459a4eb354c80"
