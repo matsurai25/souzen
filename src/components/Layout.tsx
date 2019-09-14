@@ -40,8 +40,16 @@ const TemplateWrapper = ({
           sizes='16x16'
         />
         <meta name='theme-color' content='#0000FF' />
+        <meta
+          name='twitter:card'
+          content='summary_large_image'
+        />
+        <meta name='twitter:site' content='@matsurai25' />
         <meta property='og:title' content={title} />
-        <meta property='og:url' content='https://souzen.me' />
+        <meta
+          property='og:url'
+          content='https://souzen.me'
+        />
         <meta
           property='og:image'
           content='/img/og-image.jpg'
