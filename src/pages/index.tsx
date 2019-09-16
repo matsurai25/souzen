@@ -117,6 +117,7 @@ const MainvisualWrapper = styled(Item)`
 
   ${media.sp} {
     height: 500px;
+    margin-bottom: -40%;
   }
 `
 
@@ -129,6 +130,10 @@ const AboutWrapper = styled(Item)`
   padding-bottom: 20px;
   z-index: 9;
   margin-bottom: -15%;
+
+  ${media.sp} {
+    margin-bottom: -30%;
+  }
 `
 
 const AboutShadow = styled(Shadow)`

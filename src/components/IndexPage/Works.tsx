@@ -23,11 +23,22 @@ const Works: React.FunctionComponent<Props> = ({
     <Circles className='await' src={circles} />
     <Inner>
       <Title src={worksTitle} className='await' />
-      <Items>
-        <Work title={'SAMPLE'} category={'web / design'} />
-        <Work title={'SAMPLE'} category={'web / design'} />
-        <Work title={'SAMPLE'} category={'web / design'} />
-      </Items>
+      <ItemsWrapper>
+        <Items>
+          <Work
+            title={'SAMPLE'}
+            category={'web / design'}
+          />
+          <Work
+            title={'SAMPLE'}
+            category={'web / design'}
+          />
+          <Work
+            title={'SAMPLE'}
+            category={'web / design'}
+          />
+        </Items>
+      </ItemsWrapper>
     </Inner>
   </WorksContent>
 )
@@ -49,6 +60,10 @@ const WorksContent = styled(Content)`
   clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
   padding-bottom: 10%;
   padding-top: 15%;
+
+  ${media.sp} {
+    padding-top: 30%;
+  }
 `
 
 const Gradient = styled.img`
@@ -110,10 +125,15 @@ const Side = styled.img`
   }
 `
 
+const ItemsWrapper = styled.div`
+  width: 100%;
+  overflow: auto;
+`
+
 const Items = styled.div`
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
+  width: 760px;
 `
 
 const Item = styled.div`
@@ -121,7 +141,7 @@ const Item = styled.div`
   margin-bottom: 20px;
 
   ${media.sp} {
-    width: 288px;
+    width: 240px;
   }
 `
 
@@ -138,8 +158,8 @@ const ItemContent = styled.div`
   background-color: #fff;
 
   ${media.sp} {
-    width: 288px;
-    height: 288px;
+    width: 240px;
+    height: 240px;
   }
 `
 
