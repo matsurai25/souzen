@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { FontFamily, gradient } from '../variables'
+import { FontFamily, gradient, media } from '../variables'
 
 export default function({ isHeaderHidden }) {
   const [visible, setVisible] = React.useState(false)
@@ -25,13 +25,18 @@ export default function({ isHeaderHidden }) {
   return (
     <>
       <Header visible={isHeaderHidden ? visible : true}>
-        <Logo>
-          蒼然<span> / souzen</span>
+        <Logo to={'/'}>
+          <LogoIcon />
+          <p>
+            蒼然<span> / souzen</span>
+          </p>
         </Logo>
         <Nav>
           <StyledLink to={'/'}>About</StyledLink>
           <StyledLink to={'/blog'}>Blog</StyledLink>
-          <StyledLink to={'/contact'}>ご依頼について</StyledLink>
+          <StyledLink to={'/contact'}>
+            ご依頼について
+          </StyledLink>
         </Nav>
       </Header>
       {!isHeaderHidden && <Padding />}
@@ -65,9 +70,15 @@ const Header = styled.header<{ visible: boolean }>`
     `}
 `
 
-const Logo = styled.div`
+const Logo = styled(Link)`
+  display: grid;
+  align-items: center;
+  gap: 8px;
+  grid-template-columns: 24px 1fr;
   font-size: 16px;
   font-family: ${FontFamily.Serif};
+  color: #000;
+  text-decoration: none;
 
   span {
     font-size: 12px;
@@ -88,29 +99,39 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: #000;
 
-  &:hover {
-    color: #fff;
-  }
-
-  &:nth-child(1) {
+  ${media.pc} {
     &:hover {
-      background: ${gradient.blue};
+      color: #fff;
     }
-  }
 
-  &:nth-child(2) {
-    &:hover {
-      background: ${gradient.yellow};
+    &:nth-child(1) {
+      &:hover {
+        background: ${gradient.blue};
+      }
     }
-  }
 
-  &:nth-child(3) {
-    &:hover {
-      background: ${gradient.green};
+    &:nth-child(2) {
+      &:hover {
+        background: ${gradient.yellow};
+      }
+    }
+
+    &:nth-child(3) {
+      &:hover {
+        background: ${gradient.green};
+      }
     }
   }
 `
 
 const Padding = styled.div`
   height: 48px;
+`
+
+const LogoIcon = styled.div`
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/img/lines.png');
 `

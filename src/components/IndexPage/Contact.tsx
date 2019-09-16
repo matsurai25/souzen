@@ -7,6 +7,7 @@ import title from './../../img/contact_title.svg'
 import icon from './../../img/contact_icon.svg'
 import styled from 'styled-components'
 import { Content, Inner } from './Common'
+import { media } from '../../variables'
 
 interface Props {
   isAppeared: boolean
@@ -55,15 +56,28 @@ const FlexInner = styled(Inner)`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  ${media.sp} {
+    flex-flow: column;
+  }
 `
 
 const Info = styled.div`
   flex: 1;
   padding-left: 80px;
+
+  ${media.sp} {
+    padding-left: 0;
+  }
 `
 
 const Text = styled.div`
   display: flex;
+
+  ${media.sp} {
+    flex-flow: column;
+    align-items: center;
+  }
 `
 
 const Name = styled.div`
@@ -76,6 +90,11 @@ const Name = styled.div`
 const Address = styled.div`
   font-size: 12px;
   line-height: 30px;
+
+  ${media.sp} {
+    text-align: center;
+    padding-bottom: 80px;
+  }
 `
 
 const Icon = styled.img`
@@ -83,13 +102,30 @@ const Icon = styled.img`
   height: 150px;
   margin-right: 40px;
   border-radius: 50%;
+
+  ${media.sp} {
+    margin-right: 0;
+    margin-bottom: 24px;
+    width: 80px;
+    height: 80px;
+  }
 `
 
 const Title = styled.img`
   height: 60px;
   margin-bottom: 40px;
+
+  ${media.sp} {
+    margin-top: 80px;
+    height: 30px;
+    text-align: center;
+  }
 `
 
 const Gradient = styled(Lottie)`
   width: 400px;
+
+  ${media.sp} {
+    width: 100px;
+  }
 `

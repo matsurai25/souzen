@@ -7,6 +7,7 @@ import side from './../../img/works_side.svg'
 import worksTitle from './../../img/works_title.svg'
 import styled from 'styled-components'
 import { Inner, Content } from './Common'
+import { media } from '../../variables'
 
 interface Props {
   isAppeared: boolean
@@ -56,6 +57,10 @@ const Gradient = styled.img`
   left: 50%;
   transform: translate(0, -50%);
   width: 900px;
+
+  ${media.sp} {
+    width: 500px;
+  }
 `
 
 const Circles = styled.img`
@@ -64,12 +69,21 @@ const Circles = styled.img`
   left: 50%;
   transform: translate(-60%, -55%);
   width: 1400px;
+
+  ${media.sp} {
+    width: 700px;
+  }
 `
 
 const Title = styled.img`
-  width: 900px;
+  max-width: 900px;
+  width: 100%;
   display: block;
   margin: 0 auto 40px;
+
+  ${media.sp} {
+    max-width: 300px;
+  }
 `
 
 const Dots = styled.img`
@@ -78,6 +92,10 @@ const Dots = styled.img`
   right: 40px;
   width: 20px;
   transform: translateY(-160px);
+
+  ${media.sp} {
+    right: 12px;
+  }
 `
 
 const Side = styled.img`
@@ -86,6 +104,10 @@ const Side = styled.img`
   top: 300px;
   width: 20px;
   z-index: 1;
+
+  ${media.sp} {
+    right: 12px;
+  }
 `
 
 const Items = styled.div`
@@ -97,6 +119,10 @@ const Items = styled.div`
 const Item = styled.div`
   width: 300px;
   margin-bottom: 20px;
+
+  ${media.sp} {
+    width: 288px;
+  }
 `
 
 const ItemTitle = styled.div`
@@ -110,6 +136,11 @@ const ItemContent = styled.div`
   height: 300px;
   border: 1px solid #000;
   background-color: #fff;
+
+  ${media.sp} {
+    width: 288px;
+    height: 288px;
+  }
 `
 
 const ItemCategory = styled.div`

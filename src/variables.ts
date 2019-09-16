@@ -4,6 +4,7 @@ export enum FontFamily {
 }
 
 export const media = {
+  pc: `@media (min-width: 469px)`,
   sp: `@media (max-width: 468px)`
 }
 

@@ -8,6 +8,7 @@ import zen from './../../img/about_zen.svg'
 import aboutTitle from './../../img/about_about.svg'
 import styled from 'styled-components'
 import { Content, Inner } from './Common'
+import { media } from '../../variables'
 
 interface Props {
   isAppeared: boolean

@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
-import styled from 'styled-components'
-import { gradient } from '../variables'
+import styled, { keyframes } from 'styled-components'
+import { gradient, media } from '../variables'
 
 export default function Post({
   id,
@@ -47,10 +47,6 @@ export default function Post({
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(240px, 360px)
-  );
   gap: 16px;
 `
 
@@ -63,6 +59,15 @@ const Article = styled.article`
   display: grid;
   gap: 16px;
   text-align: justify;
+`
+
+const background = keyframes`
+  from {
+    filter: hue-rotate(-30deg);
+  }
+  to {
+    filter: hue-rotate(30deg);
+  }
 `
 
 const Title = styled.h1`
@@ -88,16 +93,20 @@ const Title = styled.h1`
     z-index: 0;
     width: 0;
     height: 100%;
-    background: ${gradient.yellow};
+    background: ${gradient.blue};
+    animation: ${background} 2s ease-in-out infinite
+      alternate;
     transition: all 0.2s cubic-bezier(0, 1, 0.25, 1);
   }
 
-  &:hover {
-    span {
-      color: #fff;
-    }
-    &::before {
-      width: 100%;
+  ${media.pc} {
+    &:hover {
+      span {
+        color: #fff;
+      }
+      &::before {
+        width: 100%;
+      }
     }
   }
 `

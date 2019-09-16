@@ -9,6 +9,7 @@ import About from './../components/IndexPage/About'
 import Works from './../components/IndexPage/Works'
 import Contact from './../components/IndexPage/Contact'
 import styled, { css } from 'styled-components'
+import { media } from '../variables'
 
 interface Props {
   location: Location
@@ -113,6 +114,10 @@ const MainvisualWrapper = styled(Item)`
   padding-bottom: 20px;
   z-index: 10;
   margin-bottom: -25%;
+
+  ${media.sp} {
+    height: 500px;
+  }
 `
 
 const MainvisualShadow = styled(Shadow)`

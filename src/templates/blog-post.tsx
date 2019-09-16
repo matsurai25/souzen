@@ -216,7 +216,7 @@ const StyledContentWrapper = styled.div`
   }
 
   blockquote {
-    margin-left: 0;
+    margin: 16px 0;
     padding: 12px 0 12px 24px;
     border-left: 2px solid #ddd;
     color: #999;
