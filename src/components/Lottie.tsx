@@ -92,7 +92,9 @@ export default class Lottie extends React.Component<Props> {
     if (this.animation === null) {
       return
     }
-    this.animation.goToAndPlay(0, true)
+    try {
+      this.animation.goToAndPlay(0, true)
+    } catch {}
   }
 
   /** 最初に戻して止める */

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
+import { FontFamily, gradient } from '../variables'
 
 export default function({ isHeaderHidden }) {
   const [visible, setVisible] = React.useState(false)
@@ -24,11 +25,13 @@ export default function({ isHeaderHidden }) {
   return (
     <>
       <Header visible={isHeaderHidden ? visible : true}>
-        <Logo>souzen</Logo>
+        <Logo>
+          蒼然<span> / souzen</span>
+        </Logo>
         <Nav>
-          <StyledLink to={''}>works</StyledLink>
-          <StyledLink to={''}>blog</StyledLink>
-          <StyledLink to={''}>contact</StyledLink>
+          <StyledLink to={'/'}>About</StyledLink>
+          <StyledLink to={'/blog'}>Blog</StyledLink>
+          <StyledLink to={'/contact'}>ご依頼について</StyledLink>
         </Nav>
       </Header>
       {!isHeaderHidden && <Padding />}
@@ -63,26 +66,48 @@ const Header = styled.header<{ visible: boolean }>`
 `
 
 const Logo = styled.div`
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 16px;
+  font-family: ${FontFamily.Serif};
+
+  span {
+    font-size: 12px;
+    font-family: ${FontFamily.SansSerif};
+  }
 `
 
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* flex-flow: column; */
 `
 
 const StyledLink = styled(Link)`
-  padding: 8px;
+  padding: 4px;
+  margin-left: 4px;
   font-size: 12px;
   text-decoration: none;
   color: #000;
 
   &:hover {
     color: #fff;
-    background: #000;
+  }
+
+  &:nth-child(1) {
+    &:hover {
+      background: ${gradient.blue};
+    }
+  }
+
+  &:nth-child(2) {
+    &:hover {
+      background: ${gradient.yellow};
+    }
+  }
+
+  &:nth-child(3) {
+    &:hover {
+      background: ${gradient.green};
+    }
   }
 `
 

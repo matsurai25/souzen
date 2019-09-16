@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Link, graphql, StaticQuery } from 'gatsby'
-import PreviewCompatibleImage from './PreviewCompatibleImage'
+import { graphql, StaticQuery } from 'gatsby'
+import styled from 'styled-components'
+import Post from './Post'
 
 interface Props {
   data: any
@@ -12,65 +13,33 @@ class BlogRoll extends React.Component<Props> {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className='columns is-multiline'>
-        {posts &&
-          posts.map(({ node: post }) => (
-            <div
-              className='is-parent column is-6'
-              key={post.id}
-            >
-              <article
-                className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost
-                    ? 'is-featured'
-                    : ''
-                }`}
-              >
-                <header>
-                  {post.frontmatter.featuredimage ? (
-                    <div className='featured-thumbnail'>
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image:
-                            post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${
-                            post.title
-                          }`
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                  <p className='post-meta'>
-                    <Link
-                      className='title has-text-primary is-size-4'
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <span className='subtitle is-size-5 is-block'>
-                      {post.frontmatter.date}
-                    </span>
-                  </p>
-                </header>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link
-                    className='button'
-                    to={post.fields.slug}
-                  >
-                    Keep Reading →
-                  </Link>
-                </p>
-              </article>
-            </div>
-          ))}
-      </div>
+      <Grid>
+        {posts.map(({ node: post }) => (
+          <Post
+            key={post.id}
+            id={post.id}
+            title={post.frontmatter.title}
+            excerpt={post.excerpt}
+            date={post.frontmatter.date}
+            featured={post.frontmatter.featuredpost}
+            coverImage={post.frontmatter.featuredimage}
+            slug={post.fields.slug}
+          />
+        ))}
+      </Grid>
     )
   }
 }
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(240px, 320px)
+  );
+  gap: 40px;
+  align-items: flex-start;
+`
 
 export default () => (
   <StaticQuery

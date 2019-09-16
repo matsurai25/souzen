@@ -4,6 +4,10 @@ import Footer from './Footer'
 import Navbar from '../components/Navbar'
 import useSiteMetadata from './SiteMetadata'
 import 'reset-css'
+import styled, {
+  createGlobalStyle
+} from 'styled-components'
+import { FontFamily } from '../variables'
 
 interface Props {
   isHeaderHidden?: boolean
@@ -16,7 +20,7 @@ const TemplateWrapper = ({
 }: Props) => {
   const { title, description } = useSiteMetadata()
   return (
-    <div>
+    <Body>
       <Helmet>
         <html lang='ja' />
         <title>{title}</title>
@@ -54,12 +58,29 @@ const TemplateWrapper = ({
           property='og:image'
           content='https://souzen.me/img/og-image.jpg'
         />
+        <script src='/js/typekit.js' />
       </Helmet>
+      <GlobalStyle />
       <Navbar isHeaderHidden={isHeaderHidden} />
       <div>{children}</div>
       <Footer />
-    </div>
+    </Body>
   )
 }
+
+const Body = styled.div`
+  font-family: ${FontFamily.SansSerif};
+`
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    opacity: 0;
+  }
+
+  html.wf-active {
+    transition: opacity 0.3s;
+    opacity: 1;
+  }
+`
 
 export default TemplateWrapper

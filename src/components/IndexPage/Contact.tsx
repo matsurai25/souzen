@@ -15,7 +15,7 @@ interface Props {
 const Contact: React.FunctionComponent<Props> = ({
   isAppeared
 }) => (
-  <ContactContent>
+  <ContactContent id='contact'>
     <FlexInner>
       <div>
         <Gradient

@@ -30,11 +30,12 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #e8e8e8;
-  background: -webkit-linear-gradient(
+  background: #fff;
+  /* background: -webkit-linear-gradient(
     left,
     #ecf0ff 0%,
     #ffeaff 100%
-  );
+  ); */
 `
 
 const Barcode = styled.img`

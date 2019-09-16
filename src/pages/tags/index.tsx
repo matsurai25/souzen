@@ -3,6 +3,8 @@ import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
+import styled from 'styled-components'
+import ResponsiveWrapper from '../../components/ResponsiveWrapper'
 
 const TagsPage = ({
   data: {
@@ -13,36 +15,40 @@ const TagsPage = ({
   }
 }) => (
   <Layout>
-    <section className='section'>
+    <ResponsiveWrapper full>
       <Helmet title={`Tags | ${title}`} />
-      <div className='container content'>
-        <div className='columns'>
-          <div
-            className='column is-10 is-offset-1'
-            style={{ marginBottom: '6rem' }}
+      <div>
+        <TagTitle>Tags</TagTitle>
+        {group.map(tag => (
+          <Tag
+            key={tag.fieldValue}
+            to={`/tags/${kebabCase(tag.fieldValue)}/`}
           >
-            <h1 className='title is-size-2 is-bold-light'>
-              Tags
-            </h1>
-            <ul className='taglist'>
-              {group.map(tag => (
-                <li key={tag.fieldValue}>
-                  <Link
-                    to={`/tags/${kebabCase(
-                      tag.fieldValue
-                    )}/`}
-                  >
-                    {tag.fieldValue} ({tag.totalCount})
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+            {tag.fieldValue} ({tag.totalCount})
+          </Tag>
+        ))}
       </div>
-    </section>
+    </ResponsiveWrapper>
   </Layout>
 )
+
+const TagTitle = styled.h1`
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 16px;
+`
+
+const Tag = styled(Link)`
+  display: inline-block;
+  padding: 2px 12px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 12px;
+  color: #000;
+  text-decoration: none;
+  vertical-align: top;
+  margin-right: 12px;
+`
 
 export default TagsPage
 
