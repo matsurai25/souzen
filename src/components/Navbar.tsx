@@ -99,6 +99,13 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: #000;
 
+  ${media.sp} {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   ${media.pc} {
     &:hover {
       color: #fff;

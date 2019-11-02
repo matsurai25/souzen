@@ -126,14 +126,31 @@ const Side = styled.img`
 `
 
 const ItemsWrapper = styled.div`
-  width: 100%;
+  /* width: 100%; */
   overflow: auto;
+
+  ${media.sp} {
+    margin: 0 40px;
+    -webkit-overflow-scrolling: touch;
+  }
 `
 
 const Items = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 760px;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 300px)
+  );
+  gap: 20px;
+  justify-content: center;
+
+  ${media.sp} {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(240px, 240px)
+    );
+    width: 760px;
+  }
 `
 
 const Item = styled.div`

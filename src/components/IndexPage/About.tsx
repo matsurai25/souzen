@@ -29,17 +29,17 @@ const About: React.FunctionComponent<Props> = ({
           <Gradient className='await' src={gradient} />
         </AboutImage>
         <Text>
-          matsuraiが主催する個人サークル。matsuraiが主催する個人サークル。
-          matsuraiが主催する個人サークル。matsuraiが主催する個人サークル。
-          matsuraiが主催する個人サークル。matsuraiが主催する個人サークル。
-          matsuraiが主催する個人サークル。matsuraiが主催する個人サークル。
-          <Line />
-          Lorem Ipsum is simply dummy text of the printing
-          and typesetting industry. Lorem Ipsum has been the
-          industry's standard dummy text ever since the
-          1500s, when an unknown printer took a galley of
-          type and scrambled it to make a type specimen
-          book.
+          蒼然はmatsuraiが主催する個人サークルです。
+          <br />
+          何か活動する際に使うかも知れませんがわかりません。
+          <br />
+          <br />
+          matsuraiはWebエンジニア/映像制作者です。
+          <br />
+          デザインと役に立つものを作ることと新しいことが好きです。
+          <br />
+          自分の生活圏の人間に影響を与えられるものを作ることが好きです。
+          <br />
         </Text>
       </Wrapper>
     </Inner>
@@ -106,7 +106,7 @@ const Gradient = styled.img`
     width: 400px;
     margin-top: -400px;
     transform: translateX(-180px);
-    margin-bottom: 0;
+    margin-bottom: 20px;
     margin-left: 0;
   }
 `
