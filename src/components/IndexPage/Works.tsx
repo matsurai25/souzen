@@ -26,16 +26,20 @@ const Works: React.FunctionComponent<Props> = ({
       <ItemsWrapper>
         <Items>
           <Work
-            title={'SAMPLE'}
-            category={'web / design'}
+            to={
+              'https://twitter.com/matsurai25/status/1081972577965240320'
+            }
+            src={'/img/work_0.jpg'}
+            title={'SOUZEN'}
+            category={'web/design/motion'}
           />
           <Work
-            title={'SAMPLE'}
-            category={'web / design'}
-          />
-          <Work
-            title={'SAMPLE'}
-            category={'web / design'}
+            to={
+              'https://twitter.com/matsurai25/status/1069277566018568193'
+            }
+            src={'/img/work_2.jpg'}
+            title={'FLUID'}
+            category={'design/motion'}
           />
         </Items>
       </ItemsWrapper>
@@ -44,11 +48,13 @@ const Works: React.FunctionComponent<Props> = ({
 )
 
 const Work: React.FunctionComponent<{
+  to: string
+  src: string
   title: string
   category: string
-}> = ({ title, category }) => (
-  <Item>
-    <ItemContent />
+}> = ({ to, src, title, category }) => (
+  <Item href={to} target={'_blank'}>
+    <ItemContent src={src} />
     <ItemTitle>{title}</ItemTitle>
     <ItemCategory>{category}</ItemCategory>
   </Item>
@@ -91,10 +97,10 @@ const Circles = styled.img`
 `
 
 const Title = styled.img`
-  max-width: 900px;
+  max-width: 400px;
   width: 100%;
   display: block;
-  margin: 0 auto 40px;
+  margin: 40px auto 80px;
 
   ${media.sp} {
     max-width: 300px;
@@ -126,40 +132,33 @@ const Side = styled.img`
 `
 
 const ItemsWrapper = styled.div`
-  /* width: 100%; */
   overflow: auto;
+  width: 720px;
+  margin: 0 auto 70px;
 
   ${media.sp} {
-    margin: 0 40px;
+    width: auto;
+    margin: 0 40px 70px;
     -webkit-overflow-scrolling: touch;
   }
 `
 
 const Items = styled.div`
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(300px, 300px)
-  );
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   justify-content: center;
 
   ${media.sp} {
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(240px, 240px)
-    );
-    width: 760px;
+    grid-template-columns: 1fr;
   }
 `
 
-const Item = styled.div`
-  width: 300px;
+const Item = styled.a`
+  width: 100%;
   margin-bottom: 20px;
-
-  ${media.sp} {
-    width: 240px;
-  }
+  text-decoration: none;
+  color: #000;
 `
 
 const ItemTitle = styled.div`
@@ -168,15 +167,13 @@ const ItemTitle = styled.div`
   font-weight: bold;
 `
 
-const ItemContent = styled.div`
-  width: 300px;
-  height: 300px;
+const ItemContent = styled.img`
+  display: block;
+  width: 100%;
   border: 1px solid #000;
-  background-color: #fff;
 
   ${media.sp} {
-    width: 240px;
-    height: 240px;
+    box-sizing: border-box;
   }
 `
 

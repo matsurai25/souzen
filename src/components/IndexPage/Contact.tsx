@@ -8,6 +8,7 @@ import icon from './../../img/contact_icon.svg'
 import styled from 'styled-components'
 import { Content, Inner } from './Common'
 import { media } from '../../variables'
+import { Link } from 'gatsby'
 
 interface Props {
   isAppeared: boolean
@@ -37,7 +38,7 @@ const Contact: React.FunctionComponent<Props> = ({
               <br />
               twitter: @matsurai25
               <br />
-              ご依頼について
+              <Link to={'/contact'}>ご依頼について</Link>
             </Address>
           </div>
         </Text>

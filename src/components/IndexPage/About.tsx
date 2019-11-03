@@ -33,8 +33,11 @@ const About: React.FunctionComponent<Props> = ({
           <br />
           何か活動する際に使うかも知れませんがわかりません。
           <br />
-          <br />
+          即売会で本などを出すと思います。
+          <Hr />
           matsuraiはWebエンジニア/映像制作者です。
+          <br />
+          プロダクトマネージャーという全範囲に関わることが得意です。
           <br />
           デザインと役に立つものを作ることと新しいことが好きです。
           <br />
@@ -180,7 +183,8 @@ const Text = styled.div`
   }
 `
 
-const Line = styled.div`
-  margin: 40px 0;
-  border-bottom: 2px solid #000;
+const Hr = styled.hr`
+  margin: 20px 0;
+  border-color: #000;
+  border-width: 0.5px;
 `
