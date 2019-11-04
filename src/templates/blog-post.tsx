@@ -7,6 +7,7 @@ import Content, { HTMLContent } from '../components/Content'
 import ResponsiveWrapper from '../components/ResponsiveWrapper'
 import styled, { keyframes } from 'styled-components'
 import { gradient } from '../variables'
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const BlogPostTemplate: React.FC<
   BlogPostTemplateProps
@@ -17,7 +18,8 @@ export const BlogPostTemplate: React.FC<
   tags,
   title,
   helmet,
-  date
+  date,
+  coverImage
 }) => {
   const PostContent = contentComponent || Content
 
@@ -27,8 +29,18 @@ export const BlogPostTemplate: React.FC<
       <div>
         <Title>{title}</Title>
         <Published>{date}</Published>
-        <Gradient />
         <Description>{description}</Description>
+        {coverImage ? (
+          <CoverImageWrapper>
+            <PreviewCompatibleImage
+              imageInfo={{
+                image: coverImage
+              }}
+            />
+          </CoverImageWrapper>
+        ) : (
+          <Gradient />
+        )}
         <StyledContentWrapper>
           <PostContent content={content} />
         </StyledContentWrapper>
@@ -58,6 +70,7 @@ interface BlogPostTemplateProps {
   helmet?: any
   tags?: any[]
   date: string
+  coverImage: any
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
@@ -82,6 +95,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
           }
           tags={post.frontmatter.tags}
           title={post.frontmatter.title}
+          coverImage={post.frontmatter.featuredimage}
         />
       </ResponsiveWrapper>
     </Layout>
@@ -102,10 +116,17 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY.MM.DD(dd) hh:mm", locale: "ja")
         title
         description
         tags
+        featuredimage {
+          childImageSharp {
+            fluid(maxWidth: 600, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
@@ -120,6 +141,22 @@ function GradientCircles() {
     </Circles>
   )
 }
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
+
+const CoverImageWrapper = styled.div`
+  margin: 40px 0;
+  animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0.3s 1 both;
+`
 
 const Circles = styled.div`
   display: grid;
@@ -154,12 +191,15 @@ const Title = styled.h1`
   margin-bottom: 16px;
   line-height: 1.3;
   text-align: center;
+  animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0s 1 both;
 `
 
 const Published = styled.h6`
   font-size: 12px;
   margin-bottom: 16px;
   text-align: center;
+  color: #999;
+  animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0.1s 1 both;
 `
 
 const hueRotateIn = keyframes`
@@ -176,34 +216,26 @@ const hueRotateIn = keyframes`
 const Gradient = styled.div`
   width: 0%;
   background: ${gradient.blue};
-  height: 8px;
+  height: 2px;
   margin: 16px auto 40px;
   transform: skewX(-45deg);
   animation: ${hueRotateIn} 0.5s
-    cubic-bezier(0, 0.5, 0.25, 1) 0.1s 1 forwards;
-`
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    cubic-bezier(0, 0.5, 0.25, 1) 0.1s 1 both;
 `
 
 const Description = styled.p`
+  font-size: 12px;
+  color: #999;
+  text-align: center;
   opacity: 0;
   animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0.2s
-    1 forwards;
+    1 both;
 `
 
 const StyledContentWrapper = styled.div`
   opacity: 0;
-  animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0.2s
-    1 forwards;
+  animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0.4s
+    1 both;
 
   .gatsby-resp-image-link {
     margin: 24px 0;
@@ -220,6 +252,24 @@ const StyledContentWrapper = styled.div`
     padding: 12px 0 12px 24px;
     border-left: 2px solid #ddd;
     color: #999;
+  }
+
+  a {
+    color: #00f;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    margin: 16px 0;
+  }
+
+  .twitter-tweet {
+    margin-right: auto;
+    margin-left: auto;
   }
 
   ul,

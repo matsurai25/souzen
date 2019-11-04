@@ -12,6 +12,7 @@ module.exports = {
         allExtensions: true // defaults to false
       }
     },
+    'gatsby-plugin-twitter',
     'gatsby-plugin-fastclick',
     {
       resolve: `gatsby-plugin-styled-components`,
@@ -48,6 +49,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          `gatsby-remark-embedder`,
           {
             resolve: 'gatsby-remark-relative-images',
             options: {

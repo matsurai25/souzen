@@ -1,6 +1,6 @@
 export enum FontFamily {
   Serif = 'vdl-v7mincho, serif',
-  SansSerif = 'source-han-sans-cjk-ja, sans-serif'
+  SansSerif = '-apple-system, YuGothic, source-han-sans-cjk-ja, sans-serif'
 }
 
 export const media = {
