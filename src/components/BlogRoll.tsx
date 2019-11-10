@@ -67,7 +67,7 @@ export default () => (
                 title
                 templateKey
                 date(
-                  fromNow: true
+                  formatString: "YYYY.MM.DD(dd) hh:mm"
                   locale: "ja"
                 )
                 featuredpost
