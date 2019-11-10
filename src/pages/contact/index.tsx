@@ -8,7 +8,10 @@ const NotFoundPage = () => (
     <ResponsiveWrapper>
       <H1>ご依頼について</H1>
       <Section>
-        同人としての活動は好きなものへ積極的に参加していこうと考えています。(最近参加できていないので特に)
+        同人としての活動は好きなものへ積極的に参加していこうと考えています。
+        <br />
+        (最近参加できていないので特に)
+        <br />
         <br />
         以下は主に副業として行うことを想定したものです。
         <br />
@@ -58,6 +61,16 @@ const NotFoundPage = () => (
             </Small2>
           </li>
         </Ul>
+      </Section>
+      <Section>
+        <ButtonWrapper>
+          <Button
+            target='_blank'
+            href='https://docs.google.com/forms/d/e/1FAIpQLSeEBAUQVUaErWUUiRpA1_Cv9Waz7mB3PV9HMg7cK8xLM6Hf4w/viewform'
+          >
+            フォームを開く(GoogleForm)
+          </Button>
+        </ButtonWrapper>
       </Section>
       <Small>
         この依頼フォームは
@@ -116,7 +129,20 @@ const Ul = styled.ul`
   }
 `
 
-const Reference = styled.div`
-  font-size: 10px;
-  color: #999;
+const ButtonWrapper = styled.div`
+  text-align: center;
+`
+
+const Button = styled.a`
+  display: inline-block;
+  border-radius: 100px;
+  padding: 8px 24px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.1s;
+
+  &:hover {
+    background: #333;
+  }
 `
