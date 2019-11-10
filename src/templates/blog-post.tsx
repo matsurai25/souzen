@@ -116,7 +116,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "YYYY.MM.DD(dd) hh:mm", locale: "ja")
+        date(formatString: "YYYY.MM.DD(dd) HH:mm", locale: "ja")
         title
         description
         tags
