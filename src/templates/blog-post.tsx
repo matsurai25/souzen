@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import ResponsiveWrapper from '../components/ResponsiveWrapper'
 import styled, { keyframes } from 'styled-components'
-import { gradient } from '../variables'
+import { gradient, media } from '../variables'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const BlogPostTemplate: React.FC<
@@ -116,7 +116,10 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "YYYY.MM.DD(dd) HH:mm", locale: "ja")
+        date(
+          formatString: "YYYY.MM.DD(dd) HH:mm"
+          locale: "ja"
+        )
         title
         description
         tags
@@ -155,7 +158,8 @@ const fadeIn = keyframes`
 
 const CoverImageWrapper = styled.div`
   margin: 40px 0;
-  animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0.3s 1 both;
+  animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0.3s
+    1 both;
 `
 
 const Circles = styled.div`
@@ -191,7 +195,12 @@ const Title = styled.h1`
   margin-bottom: 16px;
   line-height: 1.3;
   text-align: center;
-  animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0s 1 both;
+  animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0s 1
+    both;
+
+  ${media.sp} {
+    font-size: 24px;
+  }
 `
 
 const Published = styled.h6`
@@ -199,7 +208,8 @@ const Published = styled.h6`
   margin-bottom: 16px;
   text-align: center;
   color: #999;
-  animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0.1s 1 both;
+  animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0.1s
+    1 both;
 `
 
 const hueRotateIn = keyframes`
