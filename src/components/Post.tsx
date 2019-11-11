@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import PreviewCompatibleImage from './PreviewCompatibleImage'
 import styled, { keyframes } from 'styled-components'
 import { gradient, media } from '../variables'
 
@@ -25,10 +24,9 @@ export default function Post({
     <Article key={id}>
       {coverImage && (
         <LinkX to={slug}>
-          <PreviewCompatibleImage
-            imageInfo={{
-              image: coverImage
-            }}
+          <CoverImage
+            src={coverImage.childImageSharp.fluid.src}
+            alt=''
           />
         </LinkX>
       )}
@@ -121,4 +119,8 @@ const Published = styled.h6`
   line-height: 1;
   font-size: 12px;
   color: #999;
+`
+
+const CoverImage = styled.img`
+  width: 100%;
 `

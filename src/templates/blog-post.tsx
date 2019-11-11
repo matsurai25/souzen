@@ -7,7 +7,6 @@ import Content, { HTMLContent } from '../components/Content'
 import ResponsiveWrapper from '../components/ResponsiveWrapper'
 import styled, { keyframes } from 'styled-components'
 import { gradient, media } from '../variables'
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import SEO from '../components/SEO'
 
 export const BlogPostTemplate: React.FC<
@@ -33,10 +32,9 @@ export const BlogPostTemplate: React.FC<
         <Description>{description}</Description>
         {coverImage ? (
           <CoverImageWrapper>
-            <PreviewCompatibleImage
-              imageInfo={{
-                image: coverImage
-              }}
+            <CoverImage
+              src={coverImage.childImageSharp.fluid.src}
+              alt=''
             />
           </CoverImageWrapper>
         ) : (
@@ -298,6 +296,10 @@ const TagArea = styled.div`
   /* margin-top: 24px;
   padding-top: 24px;
   border-top: 1px solid #ddd; */
+`
+
+const CoverImage = styled.img`
+  width: 100%;
 `
 
 const Tag = styled(Link)`
