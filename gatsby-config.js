@@ -12,6 +12,14 @@ module.exports = {
         allExtensions: true // defaults to false
       }
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-151991135-1',
+        head: false,
+        pageTransitionDelay: 300
+      }
+    },
     'gatsby-plugin-twitter',
     'gatsby-plugin-fastclick',
     {
