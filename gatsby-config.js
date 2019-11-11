@@ -1,7 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: 'souzen / matsurai',
-    description: 'matsurai(まつらい)の個人サイトです。'
+    titleTemplate: '%s｜souzen / matsurai',
+    description: 'matsurai(まつらい)の個人サイトです。',
+    url: 'https://souzen.me', // No trailing slash allowed!
+    image: '/img/og-image.jpg', // Path to your image you placed in the 'static' folder
+    twitterUsername: '@matsurai25'
   },
   plugins: [
     {

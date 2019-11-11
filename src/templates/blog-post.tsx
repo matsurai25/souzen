@@ -8,6 +8,7 @@ import ResponsiveWrapper from '../components/ResponsiveWrapper'
 import styled, { keyframes } from 'styled-components'
 import { gradient, media } from '../variables'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import SEO from '../components/SEO'
 
 export const BlogPostTemplate: React.FC<
   BlogPostTemplateProps
@@ -85,13 +86,14 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
           description={post.frontmatter.description}
           date={post.frontmatter.date}
           helmet={
-            <Helmet titleTemplate='%s | Blog'>
-              <title>{`${post.frontmatter.title}`}</title>
-              <meta
-                name='description'
-                content={`${post.frontmatter.description}`}
-              />
-            </Helmet>
+            <SEO
+              title={post.frontmatter.title}
+              image={
+                post.frontmatter.featuredimage
+                  .childImageSharp.fluid.src
+              }
+              description={post.frontmatter.description}
+            />
           }
           tags={post.frontmatter.tags}
           title={post.frontmatter.title}
@@ -125,7 +127,7 @@ export const pageQuery = graphql`
         tags
         featuredimage {
           childImageSharp {
-            fluid(maxWidth: 600, quality: 100) {
+            fluid(maxWidth: 1200, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
