@@ -27,7 +27,7 @@
     "gatsby-transformer-sharp": "^2.1.9",
     "intersection-observer": "^0.6.0",
     "lazysizes": "^5.0.0-beta2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "lodash-webpack-plugin": "^0.11.4",
     "lottie-web": "^5.5.2",
     "netlify-cms": "^2.9.1",
