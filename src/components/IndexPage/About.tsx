@@ -29,12 +29,6 @@ const About: React.FunctionComponent<Props> = ({
           <Gradient className='await' src={gradient} />
         </AboutImage>
         <Text>
-          蒼然はmatsuraiが主催する個人サークルです。
-          <br />
-          何か活動する際に使うかも知れませんがわかりません。
-          <br />
-          即売会で本などを出すと思います。
-          <Hr />
           matsuraiはWebエンジニア/映像制作者です。
           <br />
           プロダクトマネージャーという全範囲に関わることが得意です。
