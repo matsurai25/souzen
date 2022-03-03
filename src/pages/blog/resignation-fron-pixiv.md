@@ -1,5 +1,5 @@
 ---
-templateKey: resignation-fron-pixiv
+templateKey: blog-post
 title: test
 date: 2022-03-03T15:00:01+0000
 description: test
