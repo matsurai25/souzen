@@ -108,27 +108,28 @@ const Item = styled(IntersectionWrapper)`
 `
 
 const MainvisualWrapper = styled(Item)`
-  height: 100vw;
+  height: 56.25vw;
   position: relative;
   /* max-height: 1000px; */
   padding-bottom: 20px;
   z-index: 10;
   margin-bottom: -25vw;
+  min-height: 800px;
 
   ${media.sp} {
-    height: 500px;
+    min-height: 600px;
+    height: 600px;
     margin-bottom: -40vw;
   }
 `
 
 const MainvisualShadow = styled(Shadow)`
-  clip-path: polygon(
-    0vw 0vw,
-    100vw 0vw,
-    100vw 75vw,
-    0vw 100vw
-  );
-  transform: translateY(20px);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
+
+  ${media.sp} {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
+    transform: translateY(0px);
+  }
 `
 
 const AboutWrapper = styled(Item)`

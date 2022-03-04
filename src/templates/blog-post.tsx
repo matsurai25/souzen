@@ -255,6 +255,10 @@ const StyledContentWrapper = styled.div`
   animation: ${fadeIn} 1s cubic-bezier(0, 0.5, 0.25, 1) 0.4s
     1 both;
 
+  ${media.sp} {
+    font-size: 14px;
+  }
+
   .gatsby-resp-image-link {
     margin: 24px 0;
   }

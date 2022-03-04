@@ -253,14 +253,14 @@ const Lists = styled.div`
   }
 
   li {
-    list-style: disc;
+    list-style: none;
     line-height: 1.6;
     font-size: 14px;
     margin-bottom: 12px;
   }
 
   small {
-    padding-left: 12px;
+    display: block;
     color: #333;
   }
 
@@ -273,6 +273,26 @@ const Lists = styled.div`
       text-decoration: underline;
     }
   }
+
+  ${media.sp} {
+    max-width: calc(100% - 24px);
+    padding: 24px;
+    margin-bottom: 40px;
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    ul {
+      margin-left: 50px;
+      padding-left: 20px;
+    }
+
+    li {
+      list-style: none;
+      font-size: 12px;
+    }
+  }
 `
 
 const Year = styled.h6`
@@ -280,4 +300,8 @@ const Year = styled.h6`
   font-size: 24px;
   font-weight: bold;
   height: 0;
+
+  ${media.sp} {
+    font-size: 16px;
+  }
 `

@@ -47,16 +47,19 @@ const Mainvisual: React.FunctionComponent<Props> = ({
 export { Mainvisual as default }
 
 const MainvisualContent = styled(Content)`
-  height: 100vw;
-  clip-path: polygon(0vw 0vw, 100vw 0vw, 100vw 75vw, 0vw 100vw);
+  height: 56.25vw;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
+  min-height: 800px;
 
   ${media.sp} {
-    height: 500px;
+    min-height: 600px;
+    height: 600px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
   }
 `
 
 const element = css`
-  top: 40vw;
+  top: 50%;
   left: 50vw;
   position: absolute;
 `

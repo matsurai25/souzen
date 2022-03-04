@@ -4,8 +4,8 @@ export enum FontFamily {
 }
 
 export const media = {
-  pc: `@media (min-width: 469px)`,
-  sp: `@media (max-width: 468px)`
+  pc: `@media (min-width: 769px)`,
+  sp: `@media (max-width: 768px)`
 }
 
 export const gradient = {
