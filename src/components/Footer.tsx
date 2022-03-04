@@ -11,7 +11,7 @@ export default function() {
         <Barcode src={barcode} />
       </div>
       <div>
-        Copyright &copy;&nbsp;2019-&nbsp;
+        Copyright &copy;&nbsp;2022-&nbsp;
         <Anchor
           href='https://twitter.com/matsurai25'
           target='_blank'

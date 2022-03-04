@@ -34,11 +34,11 @@ const Contact: React.FunctionComponent<Props> = ({
               <img className='await' src={name} />
             </Name>
             <Address>
-              mail: m.matsurai25@gmail.com
+              mail: matsurai
+              <At />
+              souzen.io
               <br />
               twitter: @matsurai25
-              <br />
-              <Link to={'/contact'}>ご依頼について</Link>
             </Address>
           </div>
         </Text>
@@ -128,5 +128,12 @@ const Gradient = styled(Lottie)`
 
   ${media.sp} {
     width: 100px;
+  }
+`
+
+const At = styled.i`
+  &::after {
+    content: '@';
+    user-select: auto;
   }
 `

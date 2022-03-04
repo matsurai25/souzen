@@ -47,8 +47,8 @@ const Mainvisual: React.FunctionComponent<Props> = ({
 export { Mainvisual as default }
 
 const MainvisualContent = styled(Content)`
-  height: 100vh;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
+  height: 100vw;
+  clip-path: polygon(0vw 0vw, 100vw 0vw, 100vw 75vw, 0vw 100vw);
 
   ${media.sp} {
     height: 500px;
@@ -56,8 +56,8 @@ const MainvisualContent = styled(Content)`
 `
 
 const element = css`
-  top: 40%;
-  left: 50%;
+  top: 40vw;
+  left: 50vw;
   position: absolute;
 `
 

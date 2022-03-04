@@ -22,23 +22,21 @@ export default function Post({
 }) {
   return (
     <Article key={id}>
-      {coverImage && (
-        <LinkX to={slug}>
+      <LinkX to={slug} className='articleItem'>
+        {coverImage && (
           <CoverImage
             src={coverImage.childImageSharp.fluid.src}
             alt=''
           />
-        </LinkX>
-      )}
-      <Grid>
-        <LinkX to={slug}>
+        )}
+        <Grid>
           <Title>
             <span>{title}</span>
           </Title>
-        </LinkX>
-        <Excerpt>{excerpt}</Excerpt>
-        <Published>{date}</Published>
-      </Grid>
+          <Excerpt>{excerpt}</Excerpt>
+          <Published>{date}</Published>
+        </Grid>
+      </LinkX>
     </Article>
   )
 }
@@ -98,7 +96,7 @@ const Title = styled.h1`
   }
 
   ${media.pc} {
-    &:hover {
+    .articleItem:hover & {
       span {
         color: #fff;
       }

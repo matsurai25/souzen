@@ -3,5 +3,16 @@
   "trailingComma": "none",
   "singleQuote": true,
   "semi": false,
-  "jsxSingleQuote": true
+  "jsxSingleQuote": true,
+  "overrides": [
+    {
+      "files": [
+        "*.md",
+        "README"
+      ],
+      "options": {
+        "parser": "yaml"
+      }
+    }
+  ]
 }

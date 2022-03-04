@@ -23,7 +23,7 @@ const Wrapper = styled.div<{ full?: boolean }>`
   min-height: calc(100vh - 95px);
 
   max-width: ${({ full }) =>
-    full ? `100%` : `calc(600px + 32px)`};
+    full ? `100%` : `calc(800px + 32px)`};
 
   & *::selection {
     background: #7fffdd;

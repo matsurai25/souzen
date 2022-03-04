@@ -26,6 +26,13 @@ export const BlogPostTemplate: React.FC<
   return (
     <section>
       {helmet || ''}
+      <Helmet>
+        <script
+          async
+          src='//cdn.iframe.ly/embed.js'
+          charset='utf-8'
+        />
+      </Helmet>
       <div>
         <Title>{title}</Title>
         <Published>{date}</Published>
@@ -90,7 +97,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
                 post.frontmatter.featuredimage
                   .childImageSharp.fluid.src
               }
-              description={post.frontmatter.description}
+              description={post.excerpt}
             />
           }
           tags={post.frontmatter.tags}
@@ -115,6 +122,7 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      excerpt(pruneLength: 140)
       frontmatter {
         date(
           formatString: "YYYY.MM.DD(dd) HH:mm"
@@ -252,9 +260,17 @@ const StyledContentWrapper = styled.div`
   }
 
   h2 {
+    color: #00f;
     font-size: 24px;
     font-weight: bold;
     margin: 40px 0 24px;
+  }
+
+  h6 {
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 20px 0 12px;
   }
 
   blockquote {
@@ -289,6 +305,10 @@ const StyledContentWrapper = styled.div`
 
   ul li {
     list-style: disc;
+  }
+
+  strong {
+    font-weight: bold;
   }
 `
 

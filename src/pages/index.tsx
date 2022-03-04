@@ -108,31 +108,37 @@ const Item = styled(IntersectionWrapper)`
 `
 
 const MainvisualWrapper = styled(Item)`
-  height: 100vh;
+  height: 100vw;
   position: relative;
-  max-height: 1000px;
+  /* max-height: 1000px; */
   padding-bottom: 20px;
   z-index: 10;
-  margin-bottom: -25%;
+  margin-bottom: -25vw;
 
   ${media.sp} {
     height: 500px;
-    margin-bottom: -40%;
+    margin-bottom: -40vw;
   }
 `
 
 const MainvisualShadow = styled(Shadow)`
-  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
+  clip-path: polygon(
+    0vw 0vw,
+    100vw 0vw,
+    100vw 75vw,
+    0vw 100vw
+  );
+  transform: translateY(20px);
 `
 
 const AboutWrapper = styled(Item)`
   position: relative;
   padding-bottom: 20px;
   z-index: 9;
-  margin-bottom: -15%;
+  margin-bottom: -15vw;
 
   ${media.sp} {
-    margin-bottom: -30%;
+    margin-bottom: -30vw;
   }
 `
 
@@ -144,7 +150,7 @@ const WorksWrapper = styled(Item)`
   position: relative;
   padding-bottom: 20px;
   z-index: 8;
-  margin-bottom: -10%;
+  margin-bottom: -10vw;
 `
 
 const WorksShadow = styled(Shadow)`

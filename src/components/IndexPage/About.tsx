@@ -9,6 +9,7 @@ import aboutTitle from './../../img/about_about.svg'
 import styled from 'styled-components'
 import { Content, Inner } from './Common'
 import { media } from '../../variables'
+import { Link } from 'gatsby'
 
 interface Props {
   isAppeared: boolean
@@ -29,14 +30,21 @@ const About: React.FunctionComponent<Props> = ({
           <Gradient className='await' src={gradient} />
         </AboutImage>
         <Text>
-          matsuraiはWebエンジニア/映像制作者です。
+          matsurai(まつらい)はWebエンジニア/映像制作者です。
           <br />
-          プロダクトマネージャーという全範囲に関わることが得意です。
+          2022年3月より、フリーランスになりました。
           <br />
-          デザインと役に立つものを作ることと新しいことが好きです。
+          <br />
+          誰かの課題を解決することが好きです。
+          <br />
+          ものを作る人とデザインと役に立つものを作ることとが好きです。
           <br />
           自分の生活圏の人間に影響を与えられるものを作ることが好きです。
           <br />
+          <br />
+          ご用命がございましたら、以下より遠慮なくご相談ください。
+          <br />
+          <Link to="/contact">お問い合わせ</Link>          
         </Text>
       </Wrapper>
     </Inner>

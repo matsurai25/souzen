@@ -23,6 +23,49 @@ const Works: React.FunctionComponent<Props> = ({
     <Circles className='await' src={circles} />
     <Inner>
       <Title src={worksTitle} className='await' />
+      <Lists>
+        <section>
+          <Year>2022</Year>
+          <ul>
+            <li>
+              <a
+                href='https://dotmp.jp/work/419'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                【歌ってみた】回る空うさぎ - Orangestar
+                covered by 存流 MV
+              </a>
+              <small>映像制作</small>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <Year>2021</Year>
+          <ul>
+            <li>
+              <a
+                href='https://dotmp.jp/work/419'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                DIVE TO ZONeプロジェクト WEBサイト
+              </a>
+              <small>WEBエンジニア</small>
+            </li>
+            <li>
+              <a
+                href='https://dotmp.jp/work/378'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                アニメ「オッドタクシー」WEBサイト
+              </a>
+              <small>WEBエンジニア</small>
+            </li>
+          </ul>
+        </section>
+      </Lists>
       <ItemsWrapper>
         <Items>
           <Work
@@ -135,6 +178,12 @@ const ItemsWrapper = styled.div`
   overflow: auto;
   width: 720px;
   margin: 0 auto 70px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   ${media.sp} {
     width: auto;
@@ -182,4 +231,53 @@ const ItemCategory = styled.div`
   font-size: 10px;
   margin-top: -15px;
   font-weight: bold;
+`
+
+const Lists = styled.div`
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  margin-bottom: 60px;
+  box-sizing: border-box;
+
+  section {
+    margin-bottom: 40px;
+  }
+
+  ul {
+    margin-left: 100px;
+    padding-left: 40px;
+    border-left: 1px solid #000;
+  }
+
+  li {
+    list-style: disc;
+    line-height: 1.6;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  small {
+    padding-left: 12px;
+    color: #333;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`
+
+const Year = styled.h6`
+  color: #000;
+  font-size: 24px;
+  font-weight: bold;
+  height: 0;
 `
