@@ -30,7 +30,7 @@ const About: React.FunctionComponent<Props> = ({
           <Gradient className='await' src={gradient} />
         </AboutImage>
         <Text>
-          matsurai(まつらい)はWebエンジニア/映像制作者です。
+          matsurai(まつらい)はWebエンジニア/Webディレクター/映像制作者です。
           <br />
           2022年3月より、フリーランスになりました。
           <br />
